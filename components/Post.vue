@@ -3,14 +3,10 @@
         <h1 class="post__title">{{titlePost}}</h1>
         <span class="post__data">{{datePost}}</span>
         <img class="post__img" src="/logo.png">
-        <p class="post__description">
-            {{textPost}}
-        </p>
+        <p class="post__description">{{textPost}}</p>
         <button v-on:click="show = !show" class="post__more">Read more</button>
         <transition name="fade">  
-            <div v-if="show">
-                {{morePost}}
-            </div>
+            <div v-if="show">{{morePost}}</div>
         </transition>
     </div>
 </template>
@@ -21,7 +17,7 @@ export default{
             show: false
         }
     },
-	props: ['titlePost','datePost','textPost','morePost']
+    props: ['titlePost','datePost','textPost','morePost']
 };
 </script>
 

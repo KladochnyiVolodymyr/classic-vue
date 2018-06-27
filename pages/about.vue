@@ -17,10 +17,10 @@
             </div>
             <div class="team">
                 <h1 class="about__title">Meet Our Team!</h1>
-                <div class="person">
-                    <h3 class="person__name"></h3>
-                    <span class="person__position"></span>
-                    <p class="person__description"></p>
+                <div class="team__wrap">
+                    <person/>
+                    <person/>
+                    <person/>
                 </div>
             </div>
         </div>
@@ -28,7 +28,11 @@
 </template>
 
 <script>
+import Person from '~/components/Person.vue'
 export default {
+  components: {
+    Person
+  }
 }
 </script>
 
@@ -47,4 +51,8 @@ export default {
             color: rgb(17, 17, 17)
             line-height: 1.25
             margin-bottom: 30px
+.team
+    &__wrap
+        display: flex
+        flex-wrap: wrap
 </style>
