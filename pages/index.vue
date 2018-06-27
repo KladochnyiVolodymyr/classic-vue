@@ -1,8 +1,9 @@
 <template>
   <div>
     <div class="container">
+      <input class="search" type="text" placeholder="Search" v-model="search">
       <div class="posts">
-        <post v-for="post in posts" :key="post.id" :title-post="post.title" :date-post="post.date" :text-post="post.text" :more-post="post.moreText" />
+        <post v-for="post in filteredPosts" :key="post.id" :title-post="post.title" :date-post="post.date" :text-post="post.text" :more-post="post.moreText" />
       </div>
     </div>
   </div>
@@ -15,7 +16,7 @@ export default {
     return {
       posts:[
         {
-          title: 'Our Favourite Task Management App!',
+          title: 'Title',
           date: 'Posted on March 28, 2013',
           text: '6Wunderkinder’s flagship product, Wunderlist, has been a massive hit since its inception. Arguably one of the best to manage your tasks in your business and personal life. What makes it different from any other app? Simplicity. You don’t need to fiddle around with so many unnecessary features like you would with traditional to-do apps. Soon as you open the app, Wunderlist dives right into your tasks and you can get to work.',
           moreText: '6Wunderkinder’s flagship product,Wunderlist, has been a massive hit since its inception. Arguably one of the best to manage your tasks in your business and personal life'
@@ -27,21 +28,38 @@ export default {
           moreText: '6Wunderkinder’s flagship product,Wunderlist, has been a massive hit since its inception. Arguably one of the best to manage your tasks in your business and personal life'
         },
         {
-          title: 'Our Favourite Task Management App!',
+          title: 'Our ',
           date: 'Posted on March 28, 2013',
           text: '6Wunderkinder’s flagship product, Wunderlist, has been a massive hit since its inception. Arguably one of the best to manage your tasks in your business and personal life. What makes it different from any other app? Simplicity. You don’t need to fiddle around with so many unnecessary features like you would with traditional to-do apps. Soon as you open the app, Wunderlist dives right into your tasks and you can get to work.',
           moreText: '6Wunderkinder’s flagship product,Wunderlist, has been a massive hit since its inception. Arguably one of the best to manage your tasks in your business and personal life'
         }
-      ]
+      ],
+      search:""
     }
   },
   components: {
     Post
   },
+  computed: {
+    filteredPosts: function(){
+      return this.posts.filter((post) => {
+        return post.title.match(this.search)
+      });
+    }
+  }
 }
 </script>
 
 <style lang="sass">
 .posts
   padding: 50px 0px
+.search
+  border: 2px solid #999
+  width: 500px
+  display: block
+  margin: 0 auto
+  border-radius: 10px
+  height: 40px
+  margin-top: 20px
+  padding: 0px 20px
 </style>
