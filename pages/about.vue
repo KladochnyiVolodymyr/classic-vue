@@ -18,9 +18,7 @@
             <div class="team">
                 <h1 class="about__title">Meet Our Team!</h1>
                 <div class="team__wrap">
-                    <person/>
-                    <person/>
-                    <person/>
+                    <person v-for="person in team" :key="person.id" :person-name="person.name" :person-position="person.position" :person-description="person.description" />
                 </div>
             </div>
         </div>
@@ -30,9 +28,30 @@
 <script>
 import Person from '~/components/Person.vue'
 export default {
-  components: {
-    Person
-  }
+    data () {
+        return {
+            team:[
+                {
+                    name: 'Kimberly Thompson',
+                    position: 'Founder & CEO',
+                    description: 'Kimberly is the founder and the CEO of our company. With 10 years of experience in the tech industry, she ensures all operations are running smoothly.'
+                },
+                {
+                    name: 'Kimberly Thompson',
+                    position: 'Founder & CEO',
+                    description: 'Kimberly is the founder and the CEO of our company. With 10 years of experience in the tech industry, she ensures all operations are running smoothly.'
+                },
+                {
+                    name: 'Kimberly Thompson',
+                    position: 'Founder & CEO',
+                    description: 'Kimberly is the founder and the CEO of our company. With 10 years of experience in the tech industry, she ensures all operations are running smoothly.'
+                }
+            ]
+        }
+    },
+    components: {
+        Person
+    }
 }
 </script>
 

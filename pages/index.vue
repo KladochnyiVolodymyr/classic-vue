@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="container">
-      <div class="posts" v-for="post in posts" :key="post.id">
-        <post :title-post="post.title" :date-post="post.date" :text-post="post.text" :more-post="post.moreText" />
+      <div class="posts">
+        <post v-for="post in posts" :key="post.id" :title-post="post.title" :date-post="post.date" :text-post="post.text" :more-post="post.moreText" />
       </div>
     </div>
   </div>

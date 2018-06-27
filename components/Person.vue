@@ -1,13 +1,20 @@
 <template>
     <div class="person">
         <div class="person__img"></div> 
-        <h3 class="person__name">Kimberly Thompson</h3>
-        <span class="person__position">Founder & CEO</span>
-        <p class="person__description">Kimberly is the founder and the CEO of our company. With 10 years of experience in the tech industry, she ensures all operations are running smoothly.</p>
+        <h3 class="person__name">{{personName}}</h3>
+        <span class="person__position">{{personPosition}}</span>
+        <p class="person__description">{{personDescription}}</p>
     </div>
 </template>
 <script>
-
+export default{
+    data () {
+        return {
+            
+        }
+    },
+    props: ['personName','personPosition','personDescription']
+};
 </script>
 
 <style lang="sass">
