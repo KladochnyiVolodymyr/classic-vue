@@ -18,9 +18,7 @@ export default {
 
 <style lang="sass">
 @import '~assets/reset'
-
 .container
   width: 940px
   margin: 0 auto
-
 </style>
