@@ -1,7 +1,9 @@
 <template>
   <div>
     <app-header/>
-    <nuxt/>
+    <transition name="fade">
+      <nuxt/>
+    </transition>
     <app-footer/>
   </div>
 </template>
@@ -21,4 +23,8 @@ export default {
 .container
   width: 940px
   margin: 0 auto
+.fade-enter-active, .fade-leave-active 
+  transition: opacity .7s
+.fade-enter, .fade-leave-to 
+  opacity: 0
 </style>

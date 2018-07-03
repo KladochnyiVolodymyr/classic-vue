@@ -2,7 +2,7 @@
     <div class="post">
         <h1 class="post__title">{{titlePost}}</h1>
         <span class="post__data">{{datePost}}</span>
-        <img class="post__img" src="/logo.png">
+        <img class="post__img" :src="imagePost">
         <p class="post__description">{{textPost}}</p>
         <button v-on:click="show = !show" class="post__more">Read more</button>
         <transition name="fade">  
@@ -17,11 +17,11 @@ export default{
             show: false
         }
     },
-    props: ['titlePost','datePost','textPost','morePost']
+    props: ['titlePost','datePost','textPost','morePost','imagePost']
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 .post
     margin-bottom: 50px
     &__title
