@@ -23,6 +23,8 @@ export default {
 .container
   width: 940px
   margin: 0 auto
+.wrapper
+  min-height: calc(100vh - 150px)
 .fade-enter-active, .fade-leave-active 
   transition: opacity .7s
 .fade-enter, .fade-leave-to 

@@ -54,8 +54,6 @@ export default {
 </script>
 
 <style lang="sass">
-.wrapper
-   min-height: calc(100vh - 150px)
 .posts
   padding: 50px 0px
 .search
