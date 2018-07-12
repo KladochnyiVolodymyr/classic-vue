@@ -2,28 +2,33 @@
     <div class="container wrapper">
         <div class="todo">
             <h1 class="todo__title">TODO</h1>
-            <input class="todo__new" placeholder="What needs to be done?">
+            <input class="todo__new" placeholder="What needs to be done?" v-model="newTodo" @keyup.enter="addTodo">
             <ul class="todo__list">
-                <li class="todo__item">
-                    <input type="checkbox">
-                    <label>Task</label>
-                </li>
+                <task-todo/>
             </ul>
+            <p></p>
         </div>
     </div>
 </template>
 
 <script>
+import TaskTodo from "~/components/TaskTodo.vue";
 export default {
-    data () {
-        return {
-            
-        }
-    },
-    components: {
-        
+  data() {
+    return {
+      newTodo: ""
+    };
+  },
+  components: {
+    TaskTodo
+  },
+  methods: {
+    addTodo: function() {
+      var value = this.newTodo && this.newTodo.trim();
+      console.log(value);
     }
-}
+  }
+};
 </script>
 
 <style lang="sass">
@@ -37,15 +42,9 @@ export default {
         border: 2px solid #999
         border-radius: 10px
         width: 500px
-        padding: 10px
+        padding: 12px
         margin-bottom: 10px
     &__list
         width: 500px
         display: inline-block
-    &__item
-        width: 500px
-        border: 2px solid #999
-        border-radius: 10px
-        padding: 10px
-        display: flex
 </style>

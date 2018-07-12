@@ -11,13 +11,13 @@
     </div>
 </template>
 <script>
-export default{
-    data () {
-        return {
-            show: false
-        }
-    },
-    props: ['titlePost','datePost','textPost','morePost','imagePost']
+export default {
+  data() {
+    return {
+      show: false
+    };
+  },
+  props: ["titlePost", "datePost", "textPost", "morePost", "imagePost"]
 };
 </script>
 
