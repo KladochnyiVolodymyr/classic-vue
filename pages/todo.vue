@@ -4,9 +4,8 @@
             <h1 class="todo__title">TODO</h1>
             <input class="todo__new" placeholder="What needs to be done?" v-model="newTodo" @keyup.enter="addTodo">
             <ul class="todo__list">
-                <task-todo/>
+                <task-todo :task-title="newTodo"/>
             </ul>
-            <p></p>
         </div>
     </div>
 </template>
@@ -25,7 +24,7 @@ export default {
   methods: {
     addTodo: function() {
       var value = this.newTodo && this.newTodo.trim();
-      console.log(value);
+      this.newTodo = value;
     }
   }
 };
@@ -47,4 +46,7 @@ export default {
     &__list
         width: 500px
         display: inline-block
+        border: 2px solid #999
+        border-radius: 10px
+        padding: 10px 0px
 </style>

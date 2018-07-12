@@ -1,25 +1,29 @@
 <template>
     <li class="task">
         <input type="checkbox">
-        <label class="task__title">Task</label>
+        <label class="task__title">{{taskTitle}}</label>
     </li>
 </template>
 <script>
 export default {
   data() {
     return {};
-  }
+  },
+  props: ["taskTitle"]
 };
 </script>
 
 <style lang="sass">
 .task
-    width: 500px
-    border: 2px solid #999
-    border-radius: 10px
-    padding: 10px
+    //width: 500px
+    //border: 2px solid #999
+    //border-radius: 10px
+    //padding: 10px
     display: flex
-
+    border-bottom: 1px solid #999
+    padding: 10px
+    &:last-child
+        border-bottom: none
 input[type=checkbox] 
     opacity: 0
     position: absolute
