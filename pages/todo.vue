@@ -4,12 +4,18 @@
             <h1 class="todo__title">TODO</h1>
             <input class="todo__new" placeholder="What needs to be done?" v-model="newTodo" @keyup.enter="addTodo">
             <ul class="todo__list" >
-                <li class="task" v-for=" phone in phones" :key="phone">
-                    <input type="checkbox">
-                    <label class="task__title">{{phone}}</label>
-                    <img class="task__close" src="/cross.png" v-on:click="removeTodo">
+                <li class="task" v-for=" (todo, index) in todos" :key="todo">
+                    <input type="checkbox" :value="todo" v-model="selectedTodo">
+                    <label class="task__title">{{todo}}</label>
+                    <img class="task__close" src="/cross.png" v-on:click="todos.splice(index, 1);">
                 </li>
                 <!-- <task-todo :task-title="phone"/> -->
+                <div class="task__panel">
+                    <a class="is-active" href="#">All</a>
+                    <a href="#">Active</a>
+                    <a href="#">Completed</a>
+                </div>
+                <span>Выбрано: {{selectedTodo}}</span>
             </ul>
         </div>
     </div>
@@ -21,7 +27,8 @@ export default {
   data() {
     return {
       newTodo: "",
-      phones: []
+      selectedTodo: [],
+      todos: []
     };
   },
   components: {
@@ -29,11 +36,11 @@ export default {
   },
   methods: {
     addTodo: function() {
-        this.phones.push(this.newTodo);
+        this.todos.push(this.newTodo);
         this.newTodo = '';
     },
     removeTodo: function() {
-        this.phones.splice(this.newTodo);
+        this.todos.splice(index, 1);
     }
   }
 };
@@ -75,6 +82,16 @@ export default {
         width: 20px
         height: 20px
         cursor: pointer
+    &__panel
+        margin-top: 20px
+        a
+            text-decoration: none
+            margin-right: 30px
+            color: #000
+            &:hover
+                color: red
+            &.is-active
+                color: red
 input[type=checkbox] 
     opacity: 0
     position: absolute
@@ -95,4 +112,7 @@ input[type=checkbox] + label:before
     margin-right: 20px
 input[type=checkbox]:checked + label:before 
     color: green
+input[type=checkbox]:checked + label
+    color: #d9d9d9
+    text-decoration: line-through
 </style>
