@@ -4,18 +4,17 @@
             <h1 class="todo__title">TODO</h1>
             <input class="todo__new" placeholder="What needs to be done?" v-model="newTodo" @keyup.enter="addTodo">
             <ul class="todo__list" >
-                <li class="task" v-for=" (todo, index) in todos" :key="todo">
-                    <input type="checkbox" :value="todo" v-model="selectedTodo">
-                    <label class="task__title">{{todo}}</label>
+                <li class="task" v-for=" (todo, index) in todos" :key="index">
+                    <input type="checkbox" v-model="todo.isCompleted">
+                    <label class="task__title">{{todo.title}}</label>
                     <img class="task__close" src="/cross.png" v-on:click="todos.splice(index, 1);">
                 </li>
                 <!-- <task-todo :task-title="phone"/> -->
-                <div class="task__panel">
+                <li class="task__panel">
                     <a class="is-active" href="#">All</a>
                     <a href="#">Active</a>
                     <a href="#">Completed</a>
-                </div>
-                <span>Выбрано: {{selectedTodo}}</span>
+                </li>
             </ul>
         </div>
     </div>
@@ -27,7 +26,6 @@ export default {
   data() {
     return {
       newTodo: "",
-      selectedTodo: [],
       todos: []
     };
   },
@@ -36,12 +34,14 @@ export default {
   },
   methods: {
     addTodo: function() {
-        this.todos.push(this.newTodo);
+        this.todos.push({title:this.newTodo, isCompleted: false});
         this.newTodo = '';
     },
     removeTodo: function() {
         this.todos.splice(index, 1);
     }
+  },
+  computed: {
   }
 };
 </script>
